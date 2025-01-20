@@ -166,13 +166,14 @@ const Flow = () => {
       elementsSelectable={isSelectable}
       onNodeMouseEnter={handleMouseEnter} // Add the event handler for mouse enter
       onNodeMouseLeave={handleMouseLeave} // Add the event handler for mouse leave
-      fitView
       style={{ backgroundColor: '#F7F9FB' }}
       elevateEdgesOnSelect={true}
+      
     >
       <Panel
         position="top-left"
         style={{
+          marginTop: '100px',
           border: '1px solid #ccc',
           padding: '20px',
           borderRadius: '12px',
