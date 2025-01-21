@@ -6,22 +6,20 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import { Grid } from '@mui/material';
+import { Link } from "react-router-dom";
 
-const pages = ['Prospects'];
+const pages = ['Home', 'Prospects']; // Added 'Home' for navigation to the home page
 
-function MinimalisticHeader() {
+function Header(props) {
   return (
-    <Grid container spacing={2} justifyContent="center">
-      <Grid item xs={12} md={4}></Grid>
-      <Grid item xs={12} md={4}>
-        <AppBar position="static" maxWidth="xl" sx={{
-                  borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px'}}>
+        <AppBar 
+          position="static" 
+          maxWidth="xl" >
           <Container maxWidth="md">
             <Toolbar>
               <Typography
                 variant="h6"
-                component="a"
-                href="#"
+                component="div"
                 sx={{
                   mr: 2,
                   fontFamily: 'monospace',
@@ -35,7 +33,12 @@ function MinimalisticHeader() {
               </Typography>
               <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'flex-end' }}>
                 {pages.map((page) => (
-                  <Button key={page} sx={{ color: 'white' }}>
+                  <Button 
+                    key={page} 
+                    component={Link} 
+                    to={page === 'Home' ? '/' : `/${page}`} // Map Home to "/" and others to "/page"
+                    sx={{ color: 'white' }}
+                  >
                     {page}
                   </Button>
                 ))}
@@ -43,10 +46,7 @@ function MinimalisticHeader() {
             </Toolbar>
           </Container>
         </AppBar>
-      </Grid>
-      <Grid item xs={12} md={4}></Grid>
-    </Grid>
   );
 }
 
-export default MinimalisticHeader;
+export default Header;

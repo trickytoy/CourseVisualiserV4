@@ -168,6 +168,7 @@ const Flow = () => {
       onNodeMouseLeave={handleMouseLeave} // Add the event handler for mouse leave
       style={{ backgroundColor: '#F7F9FB' }}
       elevateEdgesOnSelect={true}
+      fitView={{ nodes: nodes[0]}}
       
     >
       <Panel
